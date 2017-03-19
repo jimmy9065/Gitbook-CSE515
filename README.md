@@ -1,3 +1,4 @@
-# My Awesome Book
+# CSE515 proj的相关笔记
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+这里写公式比较方便
+
