@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "chart",
+    "mermaid",
+    "prism",
+    "-highlight",
+    "splitter",
+    "katex"
+  ],
+  "pluginsConfig": {
+  }
+}
