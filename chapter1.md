@@ -1,20 +1,8 @@
 # Variational Inference
 ***
-Main idea: use a prior distribution that is not so complicated like p(x) to approximate p(x). Using KL divergence to measure the difference between p(x) and q(x).
-
-Firstly, we use KL-divergence to measure the difference between the distribution we want to approximation and the distribution we use to approximate.
-Secondly, we transfer KL-Divergence equation into some form and use some trick to solve this optimization problem.
-
-####Example
-We need to calculate a posterior $$p(\bar{z}|x)$$, Note $$\bar{z}$$ is a vector here.  
-Firstly, we know 
-$$
-p(\bar{z}|x)=\frac{p(z.x)}{\int_{\bar{z}}p(\bar{z},x)}=\frac{p(\bar z|x)}{p(x)}
-$$
-But sometimes $$\int_{\bar z}(\bar z,x)$$ is very hard to integral. So instead, we use a simpler distribution $$q(\bar z)$$ to approximate $$p(\bar z|x)$$.  
-By KL divergence, we have
-$$
-KL(q(\bar z)|p(\bar z|x))=\int_{\bar z}q(\bar z)\log\frac{p(\bar z|x)}{q(\bar z)}
-$$
-
+Main idea: using a simpler distribution q(x) to approximate a complicate like p(x).   
+***
+To approximate the complicate distribution we need to:
+1. Using KL-divergence to measure the difference between the distribution we want to approximate and the approximationg distribution.  
+2. Minimizing the KL-divergence by reforming the equation and apply general mean-field equation on the ELBO.
 
