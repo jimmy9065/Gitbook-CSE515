@@ -30,16 +30,16 @@ $$
 Use $$q(z)$$ to approximate $$p(z|x)$$, and apply KL divergence
 $$
 \begin{aligned}
-KL(q(z)|p(z|x)) &=\int_{z}q(z)\log\frac{\frac{p(z,x)}{p(x)}}{q(z)}dz\\
-                &=\int_{z}q(z)\log{p(z,x)}dz-\int_{z}q(z)\log{q(z)}dz-\log p(x)\\
-                &=\mathbb{E}_{q(z)}[\log{p(z,x)}]-\mathbb{E}_{q(z)}[\log{q(z)}]-\log p(x)\\
+KL(q(z)|p(z|x)) &=\int_{z}q(z)\log\frac{q(z)}{\frac{p(z,x)}{p(x)}}dz\\
+                &=\int_{z}q(z)\log{q(z)}dz-\int_{z}q(z)\log{p(z,x)}dz+\log p(x)\\
+                &=\mathbb{E}_{q(z)}[\log{q(z)}]-\mathbb{E}_{q(z)}[\log{p(z,x)}]+\log p(x)\\
 \end{aligned}
 $$
 Rearrange the equation,
 $$
 \begin{aligned}
-\log p(x) &=\mathbb{E}_{q(z)}[\log{p(z,x)}]-\mathbb{E}_{q(z)}[\log{q(z)}]-KL(q(z)|p(z|x))\\
-          &=\mathbb{E}_{q(z)}\Big[\log\frac{p(z,x)}{q(z)}\Big]-KL(q(z)|p(z|x))\\
+\log p(x) &=\mathbb{E}_{q(z)}[\log{p(z,x)}]-\mathbb{E}_{q(z)}[\log{q(z)}]+KL(q(z)|p(z|x))\\
+          &=\mathbb{E}_{q(z)}\Big[\log\frac{p(z,x)}{q(z)}\Big]+KL(q(z)|p(z|x))\\
 \end{aligned}
 $$
 The first part on the right is called evidence lower bound(ELOB).  
