@@ -1,7 +1,7 @@
 #Example
 ***
 #### Joint Posterior
-We need to approximate a posterior $$p(\bar{z}|x)$$, and $$\bar{z}=[z_1,z_2,z_3]$$, by using $$q(\bar z)=q(z_1)q(z_2)q(z_3)$$ to approximate this posterior.  
+We need to approximate a posterior $$p(\bar{z}|x)$$, and $$\bar{z}=[z_1,z_2,z_3]$$, by using $$q(\bar z)=q(z_1)q(z_2)q(z_3)$$.  
   
 Write down the KL divergence,
 $$
