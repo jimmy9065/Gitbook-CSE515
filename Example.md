@@ -1,12 +1,45 @@
 #Example
-We need to calculate a posterior $$p(\bar{z}|x)$$, Note $$\bar{z}$$ is a vector here.  
-Firstly, we know 
+***
+#### Joint Posterior
+We need to approximate a posterior $$p(\bar{z}|x)$$, and $$\bar{z}=[z_1,z_2,z_3]$$, by using $$q(\bar z)=q(z_1)q(z_2)q(z_3)$$ to approximate this posterior.  
+  
+Write down the KL divergence,
 $$
-p(\bar{z}|x)=\frac{p(z.x)}{\int_{\bar{z}}p(\bar{z},x)}=\frac{p(\bar z|x)}{p(x)}
+KL(q(\bar z)|p(\bar z|x)) =\int_{\bar z}q(\bar z)\log\frac{q(\bar z)}{p(\bar z|x)}dz
 $$
-But sometimes $$\int_{\bar z}(\bar z,x)$$ is very hard to integral. So instead, we use a simpler distribution $$q(\bar z)$$ to approximate $$p(\bar z|x)$$.  
-By KL divergence, we have
+According to the last section, the ELBO function is
 $$
-KL(q(\bar z)|p(\bar z|x))=\int_{\bar z}q(\bar z)\log\frac{p(\bar z|x)}{q(\bar z)}
+\begin{aligned}
+\mathcal{L} &=\mathbb{E}_{\bar z}[\log p(\bar z,x)]-\mathbb{E}_{\bar z}[\log q(\bar z)]\\
+            &=\mathbb{E}_{\bar z}[\log p(z_1,z_2,z_3,x)]-\log q(z_1)-\log q(z_2)-\log q(z_3)]\\
+\end{aligned}
 $$
+For $$z_1$$,
+$$
+\begin{aligned}
+\mathcal{L} &=\mathbb{E}_{z_1}\Big[\mathbb{E}_{z_2,z_3}[\log p(z_1,z_2,z_3,x)]-\log q(z_1)-\log q(z_2)-\log q(z_3)]\Big]\\
+            &=\mathbb{E}_{z_1}\Big[\mathbb{E}_{z_2,z_3}[\log p(z_1,z_2,z_3,x)]-\mathbb{E}_{z_2,z_3}[\log q(z_2)q(z_3)]-\log q(z_1)\Big]\\
+            &=\mathbb{E}_{z_1}\Big[\mathbb{E}_{z_2,z_3}[p(z_1,z_2,z_3,x)]-\log q(z_1)\Big]+C\\
+            &=\mathbb{E}_{z_1}\Big[\log\tilde{p}(z_1,z_2,z_3,x)-\log q(z_1)\Big]+C_2\\
+            &=\mathbb{E}_{z_1}\Big[\log\frac{\tilde{p}(z_1,z_2,z_3,x)}{q(z_1)}\Big]+C_2\\
+            &=-KL(q(z_1)|\tilde{p(z_1,z_2,z_3,x)})+C_2\\
+\end{aligned}
+$$
+Thus, for $$z_1$$ and similarly for $$z_2,z_3$$
+$$
+\begin{aligned}
+p(z_1)&=\frac1Ze^{\mathbb{E}_{z_2,z_3}[\log p(z_1,z_2,z_3,x)]}\\
+\\
+p(z_2)&=\frac1Ze^{\mathbb{E}_{z_1,z_3}[\log p(z_1,z_2,z_3,x)]}\\
+\\
+p(z_3)&=\frac1Ze^{\mathbb{E}_{z_1,z_2}[\log p(z_1,z_2,z_3,x)]}
+\end{aligned}
+$$
+***
+#### Multivariable Gaussian Distribution
 
+***
+#### Gaussian Mixture Model
+
+***
+#### Posterior of parameters

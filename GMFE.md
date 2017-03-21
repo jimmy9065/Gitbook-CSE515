@@ -29,7 +29,7 @@ $$
             &=\int_{z_1}q(z_i) \Big(\mathbb{E}_{q(z_{j\neq i})}[\log p(\bar z,x)]-\log q(z_i)\Big)dx_i+C
 \end{aligned}
 $$
-Here we separate the constant C into $$C_1,C_2$$, such that $$E_{z_{j\neq i}}[\frac{\log p(\bar z,x)}{C_1}]=\log\tilde{p}(x,z)$$, and $$\tilde{p}(x,z)$$ will be a distribution.\\
+Here we separate the constant C into $$C_1,C_2$$, such that $$E_{z_{j\neq i}}[\frac{\log p(\bar z,x)}{C_1}]=\log\tilde{p}(x,z)$$. It's basicly a normalization so that $$\tilde{p}(x,z)$$ will be a distribution.  
 Plug this into the equation,
 $$
 \begin{aligned}
@@ -45,22 +45,3 @@ q(z_i)=\tilde{p}(x,z)=\frac1Z\exp(\mathbb{E}_{q_{j\neq i}}[\log p(x,z)])
 $$  
 Apply this on every z_i, and each time we use newly updated q(z_j).  
 There is a proof of that by doing this, $$\mathcal{L}$$ is guarantee to increase in each iteration.
-
-<!---
-$$
-KL(q|p)=\sum_i\big\langle\log q(x_i)\big\rangle_{q(x_i)} - \big\langle \log p(x)\big\rangle_{\Pi_i q(x_i)}
-$$
-$$p(x_i)$$ is the marginal probability  
-For $$x_i$$ we have,
-$$
-\big\langle \log q(x_i)\big\rangle_{q(x_i)} - \big\langle\big\langle\log(p(x_j))\big\rangle_{\Pi_i\neq j q(x_j)}\big\rangle_{q(x_i)}
-$$
-To get the optimal $$q(x_i)$$, we need to let
-$$
-q(x_i)\propto exp(\big\langle\log p(x)\big\rangle_{\Pi_{i\neq j q(x_j)}})
-$$
-So every variable, we update it in this way:
-$$
-q(x_i)=\frac{1}{Z}exp(\big\langle\log p(x)\big\rangle_{\Pi_{i\neq j q(x_j)^old}})
-$$
---->
