@@ -107,7 +107,7 @@ Since $$x_2$$ is symmetric, we can derive it similarly
 $$
 q(x_2)=\mathcal{N}(x_2,(\mu_2-\frac{\Lambda_{11}}{\Lambda_{22}}(\mathbb{E_{1}[x_{1}]}-\mu_{1})),\Lambda_{12}^{-1})
 $$
-Initialize $$x_1=3,x_2=4$$, update for 4 iterations:  
+Initialize $$x_1=3,x_2=4$$, after 4 iterations, we have  
 
 | Times | x1 | x2 |
 |--|--|--|
@@ -117,8 +117,10 @@ Initialize $$x_1=3,x_2=4$$, update for 4 iterations:
 |3 |0.996|-1.0|
 |4 |0.1|-1.0|
 
-And here is the result:  
-<img src=https://raw.githubusercontent.com/jimmy9065/Gitbook-CSE515/master/pic/mvn_approx.jpg width = 500 height = 350 />
+And here is the plot
+<img src=https://raw.githubusercontent.com/jimmy9065/Gitbook-CSE515/master/pic/mvn_approx.jpg width = 800 height = 400 />  
+Notice only the mean and the $$\sigma(x_1)$$,$$\sigma(x_2)$$ are matched.  
+This is because we assumed that $$x_1,x_2$$ are independent.
 ***
 #### Gaussian Mixture Model
 
