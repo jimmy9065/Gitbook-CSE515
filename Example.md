@@ -117,8 +117,8 @@ Initialize $$x_1=3,x_2=4$$, update for 4 iterations:
 |3 |0.996|-1.0|
 |4 |0.1|-1.0|
 
-And here is the result:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+And here is the result:  
+<img src=https://raw.githubusercontent.com/jimmy9065/Gitbook-CSE515/master/pic/mvn_approx.jpg width = 500 height = 350 />
 ***
 #### Gaussian Mixture Model
 
