@@ -43,5 +43,6 @@ Now, in order to maximize $$\mathcal{L}$$, we need to minimize $$KL(q(z_i)|\tild
 $$
 q(z_i)=\tilde{p}(x,z)=\frac1Z\exp(\mathbb{E}_{q_{j\neq i}}[\log p(x,z)])
 $$  
+Notice here, for $$z_i$$, any product totally unrelated to to $$z_i$$ in $$\mathbb{E}_{q_{j\neq i}}[\log p(x,z)]$$ is also a constant, thus no need to be calculated.
 Apply this on every z_i, and each time we use newly updated q(z_j).  
 There is a proof of that by doing this, $$\mathcal{L}$$ is guarantee to increase in each iteration.
